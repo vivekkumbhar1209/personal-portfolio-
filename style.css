@@ -82,13 +82,18 @@ h2 {
   text-align: center;
 }
 
-.about-photo img {
-  max-width: 100%;
+img {
+  width: 300px;
   height: auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 170, 255, 0.3);
-  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -106,19 +111,46 @@ h2 {
 }
 
 
+
+
 /* Skill Bars */
 .skill-circles {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   margin-top: 40px;
 }
 
 .circle-skill {
   text-align: center;
-  width: 120px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.circle-skill:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f06, #f90);
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  transition: background 0.4s ease;
+}
+
+.circle-skill:hover .circle {
+  background: linear-gradient(135deg, #06f, #0ff);
+}
+
 
 .circle {
   width: 120px;
@@ -304,62 +336,55 @@ footer {
 }
 
 /* Internship Timeline Styles */
-.timeline {
-  position: relative;
-  margin-top: 30px;
-  padding-left: 30px;
-  border-left: 3px solid #00aaff;
-}
 .timeline-item {
-  margin-bottom: 40px;
+  background: #f0f0f0; /* Light gray background */
+  border-left: 4px solid #333333; /* Dark accent line */
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
   position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  color: #000000; /* Black text */
 }
+
+.timeline-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(51, 51, 51, 0.2); /* Subtle shadow */
+  background: #ffffff; /* White on hover */
+}
+
 .timeline-icon {
   position: absolute;
-  left: -22px;
-  top: 0;
-  background: #00aaff;
-  color: #fff;
-  width: 40px;
-  height: 40px;
+  top: 20px;
+  left: -28px;
+  background: #0a85e3; /* Dark gray icon */
+  color: #ffffff;
   border-radius: 50%;
-  text-align: center;
-  line-height: 40px;
-  font-size: 18px;
+  padding: 10px;
+  font-size: 16px;
+  transition: background 0.3s ease;
 }
-.timeline-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+.timeline-item:hover .timeline-icon {
+  background: #1224cb; /* Black on hover */
 }
+
 .timeline-content h3 {
   margin-top: 0;
-  color: #333;
+  font-size: 1.25rem;
+  color: #000000; /* Ensure heading is black */
+  transition: color 0.3s ease;
 }
+
+.timeline-item:hover h3 {
+  color: #1a1a1a; /* Slightly lighter black on hover */
+}
+
 .duration {
-  display: block;
-  font-size: 0.9em;
-  color: #888;
-  margin-bottom: 10px;
+  font-weight: bold;
+  color: #444444; /* Dark gray for subtle contrast */
 }
-.timeline-content p {
-  font-size: 0.95rem;
-  color: #444;
-  margin: 0;
-}
-@media (max-width: 600px) {
-  .timeline {
-    padding-left: 15px;
-  }
-  .timeline-icon {
-    left: -18px;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    font-size: 16px;
-  }
-}
+
 
 /* Contact Section */
 #contact .contact-info {
@@ -371,7 +396,7 @@ footer {
 }
 
 .contact-item {
-  background: #fff;
+  background: #dfd3c3;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   padding: 25px 30px;
   border-radius: 10px;
